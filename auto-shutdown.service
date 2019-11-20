@@ -1,3 +1,7 @@
+# place this file in /etc/systemd/system/auto-shutdown.service
+# adjust python location, shutdown script path, user and group
+# sudo systemctl daemon-reload && sudo systemctl enable auto-shutdown && sudo systemctl start auto-shutdown
+
 [Unit]
 Description=Auto-Shutdown
 
