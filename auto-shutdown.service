@@ -1,0 +1,15 @@
+[Unit]
+Description=Auto-Shutdown
+
+[Service]
+Type=simple
+PIDFile=/run/auto-shutdown.pid
+ExecStart=python /home/$user/autoshutdown.py
+User=$user
+Group=$user
+WorkingDirectory=/
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
