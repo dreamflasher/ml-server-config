@@ -10,5 +10,5 @@ while True:
     if len(d) >= 120*60:  # wait at least 120 min after reboot
         if max(d) < 9:  # max smaller than 9 percent auto shutdown
             os.system('az vm deallocate -g "$GROUP" -n "$VMNAME"')
-						os.system('az vmss deallocate -g "$GROUP" -n "$VMNAME"')
+	    os.system('az vmss deallocate -g "$GROUP" -n "$VMNAME"')
     time.sleep(1)
