@@ -1,3 +1,6 @@
+# curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+# az login
+
 import time
 import os
 import psutil
