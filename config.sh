@@ -24,3 +24,5 @@ export PATH=/opt/conda/bin:$PATH
 conda update conda -y && conda update --all -y
 conda install joblib boost statsmodels wget pyhive psutil plotly natsort pandas tensorflow matplotlib scikit-learn jupyter nb_conda nb_conda_kernels notebook -y
 pip install torch torchvision jupyter_contrib_nbextensions imtools wandb cachetools tensorboardX opencv-python pyarrow fastai
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
