@@ -27,6 +27,8 @@ pip install torch torchvision jupyter_contrib_nbextensions imtools wandb cacheto
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+
 LINE='export PATH=/opt/conda/bin:$PATH'
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
 grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
