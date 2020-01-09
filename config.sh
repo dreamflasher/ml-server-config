@@ -26,3 +26,11 @@ conda install joblib boost statsmodels wget pyhive psutil plotly natsort pandas 
 pip install torch torchvision jupyter_contrib_nbextensions imtools wandb cachetools tensorboardX opencv-python pyarrow fastai
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+LINE='export PATH=/opt/conda/bin:$PATH'
+grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
+grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
+
+LINE='if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then tmux attach-session -t s || tmux new-session -s s; fi'
+grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
+grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
