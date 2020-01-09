@@ -27,7 +27,7 @@ pip install torch torchvision jupyter_contrib_nbextensions imtools wandb cacheto
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -s --unattended
 
 LINE='export PATH=/opt/conda/bin:$PATH'
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
@@ -35,4 +35,10 @@ grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
 
 LINE='if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then tmux attach-session -t s || tmux new-session -s s; fi'
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
+grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
+
+LINE='DISABLE_UPDATE_PROMPT=true'
+grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
+
+LINE='ZSH_THEME="gallois"'
 grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
