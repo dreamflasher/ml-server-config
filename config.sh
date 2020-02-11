@@ -16,6 +16,7 @@ printf "APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Download-Upgrad
 
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
 
+sudo pip3 install --upgrade pip
 pip3 install joblib boost statsmodels wget pyhive psutil plotly natsort pandas tensorflow matplotlib scikit-learn jupyter nb_conda nb_conda_kernels notebook torch torchvision jupyter_contrib_nbextensions imtools wandb cachetools tensorboardX opencv-python pyarrow fastai
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
