@@ -8,7 +8,7 @@ Description=Auto-Shutdown
 [Service]
 Type=simple
 PIDFile=/run/auto-shutdown.pid
-ExecStart=python /home/$user/azure-auto-shutdown.py
+ExecStart=/usr/local/bin/python3 /home/$user/azure-auto-shutdown.py
 User=$user
 Group=$user
 WorkingDirectory=/
