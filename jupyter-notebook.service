@@ -1,0 +1,19 @@
+# sudo cp auto-shutdown.service /etc/systemd/system/jupyter-notebook.service
+# adjust python location, shutdown script path, user and group
+# sudo systemctl daemon-reload && sudo systemctl enable jupyter-notebook && sudo systemctl start jupyter-notebook
+
+[Unit]
+Description=Jupyter Notebook
+
+[Service]
+Type=simple
+PIDFile=/run/jupyter-notebook.pid
+ExecStart=/usr/local/bin/python3 /home/$user/.local/bin/jupyter-notebook --no-browser --ip=0.0.0.0  --NotebookApp.token='' --notebook-dir=/
+User=$user
+Group=$user
+WorkingDirectory=/
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
