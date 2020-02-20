@@ -34,3 +34,4 @@ LINE='ZSH_THEME="gallois"'
 grep -xqF -- "$LINE" ~/.zshrc || sed  -i "1i $LINE" ~/.zshrc
 
 cp .tmux.conf ~/
+cp .ssh ~/.ssh
