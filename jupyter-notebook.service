@@ -1,4 +1,4 @@
-# sudo cp auto-shutdown.service /etc/systemd/system/jupyter-notebook.service
+# sudo cp jupyter-notebook.service /etc/systemd/system/jupyter-notebook.service
 # adjust python location, shutdown script path, user and group
 # sudo systemctl daemon-reload && sudo systemctl enable jupyter-notebook && sudo systemctl start jupyter-notebook
 
