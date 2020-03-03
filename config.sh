@@ -27,6 +27,9 @@ LINE='if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then tmux attach-sessi
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
 grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
 
+LINE='PATH=~/.local/bin:$PATH'
+grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
+
 LINE='DISABLE_UPDATE_PROMPT="true"'
 grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
 
