@@ -31,7 +31,7 @@ LINE='PATH=~/.local/bin:$PATH'
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
 
 LINE='DISABLE_UPDATE_PROMPT="true"'
-grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
+grep -xqF -- "$LINE" ~/.zshrc || sed  -i "1i $LINE" ~/.zshrc
 
 LINE='ZSH_THEME="gallois"'
 grep -xqF -- "$LINE" ~/.zshrc || sed  -i "1i $LINE" ~/.zshrc
