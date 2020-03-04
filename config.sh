@@ -33,8 +33,7 @@ grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
 LINE='DISABLE_UPDATE_PROMPT="true"'
 grep -xqF -- "$LINE" ~/.zshrc || sed  -i "1i $LINE" ~/.zshrc
 
-LINE='ZSH_THEME="gallois"'
-grep -xqF -- "$LINE" ~/.zshrc || sed  -i "1i $LINE" ~/.zshrc
+sed -i 's/ZSH_THEME=.*/ZSH_THEME="gallois"/' ~/.zshrc
 
 cp .tmux.conf ~/
 cp .ssh/* ~/.ssh/
