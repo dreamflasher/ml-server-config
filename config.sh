@@ -29,6 +29,7 @@ grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
 
 LINE='PATH=~/.local/bin:$PATH'
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
+grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
 
 LINE='DISABLE_UPDATE_PROMPT="true"'
 grep -xqF -- "$LINE" ~/.zshrc || sed  -i "1i $LINE" ~/.zshrc
