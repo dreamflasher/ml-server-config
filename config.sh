@@ -17,7 +17,7 @@ printf "APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Download-Upgrad
 sudo update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.8 1
 
 sudo python3 -m pip install --upgrade pip
-python3 -m pip install joblib boost statsmodels wget pyhive psutil plotly natsort pandas matplotlib scikit-learn jupyter notebook torch torchvision jupyter_contrib_nbextensions imtools wandb cachetools tensorboardX opencv-python pyarrow fastai mypy flake8 pydocstyle pycodestyle autopep8
+python3 -m pip install joblib boost statsmodels wget pyhive psutil isort plotly natsort pandas matplotlib scikit-learn jupyter notebook torch torchvision jupyter_contrib_nbextensions imtools wandb cachetools tensorboardX opencv-python pyarrow fastai mypy flake8 pydocstyle pycodestyle autopep8
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
