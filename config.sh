@@ -37,3 +37,6 @@ sed -i 's/ZSH_THEME=.*/ZSH_THEME="gallois"/' ~/.zshrc
 
 cp .tmux.conf ~/
 cp .ssh/* ~/.ssh/
+
+tmux
+~/.tmux/plugins/tpm/scripts/install_plugins.sh
