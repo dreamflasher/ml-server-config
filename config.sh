@@ -41,3 +41,4 @@ cp .ssh/* ~/.ssh/
 
 tmux
 ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+~/.tmux/plugins/tpm/bin/install_plugins
