@@ -5,4 +5,4 @@ wget -O azcopy.tar https://aka.ms/downloadazcopy-v10-linux && tar -xvf azcopy.ta
 sudo mkdir /data && sudo chmod +777 /data
 
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-az login
+az login --use-device-code
