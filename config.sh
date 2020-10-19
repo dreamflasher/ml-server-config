@@ -5,7 +5,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa -y
 
 sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
 
-sudo apt install unattended-upgrades zsh git-core keychain tmux mosh gcc gparted ubuntu-drivers-common python3.9 python3.9-dev python3.9-distutils python3-pip ncdu x11-apps -y
+sudo apt install unattended-upgrades zsh git-core keychain tmux mosh gcc gparted ubuntu-drivers-common python3.8 python3.8-dev python3.8-distutils python3-pip ncdu x11-apps -y
 sudo snap install micro --classic
 
 sudo ubuntu-drivers autoinstall
@@ -14,7 +14,7 @@ sudo apt install nvidia-cuda-toolkit -y
 
 printf "APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Download-Upgradeable-Packages "1";\nAPT::Periodic::AutocleanInterval "7";\nAPT::Periodic::Unattended-Upgrade "7";\n" | sudo tee /etc/apt/apt.conf.d/20auto-upgrades
 
-sudo update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.9 1
+sudo update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.8 1
 
 sudo python3 -m pip install --upgrade pip
 python3 -m pip install joblib boost statsmodels wget pyhive psutil isort plotly natsort pandas matplotlib scikit-learn jupyter notebook torch torchvision jupyter_contrib_nbextensions imtools wandb cachetools tensorboardX opencv-python pyarrow fastai mypy flake8 pydocstyle pycodestyle autopep8 autoflake
