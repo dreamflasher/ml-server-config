@@ -4,7 +4,7 @@
 import os
 import time
 from collections import deque
-
+import socket
 import psutil
 
 d = deque(maxlen=120 * 60)  # only look at the last 120 minutes
@@ -13,6 +13,6 @@ while True:
     d.append(cpu)
     if len(d) >= 120 * 60:  # wait at least 120 min after reboot
         if max(d) < 9:  # max smaller than 9 percent auto shutdown
-            os.system('az vm deallocate -g "$GROUP" -n "$VMNAME"')
+            os.system(f'az vm deallocate -g "$GROUP" -n "{socket.gethostname()}"')
             # os.system('az vmss deallocate -g "$GROUP" -n "$VMNAME --instance-ids 0"')
     time.sleep(1)
