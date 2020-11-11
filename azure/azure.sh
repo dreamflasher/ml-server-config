@@ -22,7 +22,7 @@ RestartSec=10
 [Install]
 WantedBy=multi-user.target"
 
-sudo echo "$shutdownscript" > /etc/systemd/system/auto-shutdown.service
+echo "$shutdownscript" | sudo tee /etc/systemd/system/auto-shutdown.service
 cp azure-auto-shutdown.py ~/
 sudo systemctl daemon-reload && sudo systemctl enable auto-shutdown && sudo systemctl start auto-shutdown
 
