@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# add opendns DNS (else the ppa's sometimes can't be resolved)
+sudo apt update -y
+sudo apt install resolvconf -y
+echo "nameserver 208.67.222.222" | sudo tee /etc/resolvconf/resolv.conf.d/base > /dev/null
+
 sudo add-apt-repository ppa:graphics-drivers/ppa -y
 sudo add-apt-repository ppa:deadsnakes/ppa -y
 
