@@ -5,4 +5,25 @@ wget -O azcopy.tar https://aka.ms/downloadazcopy-v10-linux && tar -xvf azcopy.ta
 sudo mkdir /data && sudo chmod +777 /data
 
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+shutdownscript="[Unit]
+Description=Auto-Shutdown
+
+[Service]
+Type=simple
+PIDFile=/run/auto-shutdown.pid
+ExecStart=/usr/local/bin/python3 /home/$USER/azure-auto-shutdown.py
+User=$USER
+Group=$USER
+WorkingDirectory=/
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target"
+
+sudo echo "$shutdownscript" > /etc/systemd/system/auto-shutdown.service
+cp azure-auto-shutdown.py ~/
+sudo systemctl daemon-reload && sudo systemctl enable auto-shutdown && sudo systemctl start auto-shutdown
+
 az login --use-device-code
