@@ -50,6 +50,10 @@ LINE='tmux resize-window -A'
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
 grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
 
+LINE='export PATH=/usr/local/cuda/bin:${PATH}'
+grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
+grep -xqF -- "$LINE" ~/.zshrc|| echo "$LINE" >> ~/.zshrc
+
 sed -i 's/ZSH_THEME=.*/ZSH_THEME="gallois"/' ~/.zshrc
 
 cp .tmux.conf ~/
