@@ -12,6 +12,7 @@ sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo
 
 sudo apt install unattended-upgrades zsh git-core keychain mosh gcc gparted ubuntu-drivers-common python3.8 python3.8-dev python3.8-distutils python3-pip ncdu x11-apps xclip xsel build-essential devscripts debhelper fakeroot -y
 sudo snap install micro tmux-non-dead --classic
+sudo snap alias tmux-non-dead.tmux tmux
 
 sudo ubuntu-drivers autoinstall
 
@@ -35,7 +36,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -s --unattended
 
-LINE='export PATH=~/.local/bin:$PATH'
+LINE='export PATH=~/.local/bin:/snap/bin:$PATH'
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
 grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
 
