@@ -12,7 +12,7 @@ sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo
 
 sudo apt install unattended-upgrades zsh git-core keychain mosh gcc gparted ubuntu-drivers-common python3.8 python3.8-dev python3.8-distutils python3-pip ncdu x11-apps xclip xsel build-essential devscripts debhelper fakeroot -y
 sudo snap install micro --classic
-sudo apt remove tmux
+sudo apt remove tmux -y
 sudo snap install tmux-non-dead --classic
 sudo snap alias tmux-non-dead.tmux tmux
 
