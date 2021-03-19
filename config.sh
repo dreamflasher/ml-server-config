@@ -11,7 +11,9 @@ sudo add-apt-repository ppa:deadsnakes/ppa -y
 sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
 
 sudo apt install unattended-upgrades zsh git-core keychain mosh gcc gparted ubuntu-drivers-common python3.8 python3.8-dev python3.8-distutils python3-pip ncdu x11-apps xclip xsel build-essential devscripts debhelper fakeroot -y
-sudo snap install micro tmux-non-dead --classic
+sudo snap install micro --classic
+sudo apt remove tmux -y
+sudo snap install tmux-non-dead --classic
 sudo snap alias tmux-non-dead.tmux tmux
 
 sudo ubuntu-drivers autoinstall
@@ -27,15 +29,15 @@ printf "APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Download-Upgrad
 
 sudo update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.8 1
 
-export PATH=~/.local/bin:$PATH
+export PATH=~/.local/bin:/usr/local/cuda/bin:$PATH
 sudo python3 -m pip install --upgrade pip
 python3 -m pip install joblib boost statsmodels wget pyhive psutil isort plotly natsort pandas matplotlib scikit-learn jupyter notebook jupyter_contrib_nbextensions imtools wandb cachetools tensorboard tensorboardX opencv-python pyarrow fastai mypy flake8 pydocstyle pycodestyle autopep8 autoflake
 python3 -m pip install torch===1.7.0+cu110 torchvision===0.8.1+cu110 torchaudio===0.7.0 -f https://download.pytorch.org/whl/torch_stable.html
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -s --unattended
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 LINE='export PATH=~/.local/bin:/snap/bin:$PATH'
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
@@ -55,6 +57,7 @@ sed -i 's/ZSH_THEME=.*/ZSH_THEME="gallois"/' ~/.zshrc
 
 cp .tmux.conf ~/
 cp .ssh/* ~/.ssh/
+mkdir ~/.tmux/tmux-resurrect/
 
 tmux
 ~/.tmux/plugins/tpm/scripts/install_plugins.sh
