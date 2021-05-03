@@ -43,6 +43,10 @@ LINE='export PATH=~/.local/bin:/snap/bin:$PATH'
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
 grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
 
+LINE='export OMP_NUM_THREADS=24'
+grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
+grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
+
 LINE='if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then tmux attach-session -t s || tmux new-session -s s; fi'
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
 grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
