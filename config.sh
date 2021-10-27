@@ -23,7 +23,7 @@ sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/
 sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu2004/x86_64 /" > /etc/apt/sources.list.d/cuda_learn.list'
 
 sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
-sudo apt install cuda-11-0 libcudnn8 libnccl2 -y
+sudo apt install cuda-11-5 libcudnn8 libnccl2 -y
 
 printf "APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Download-Upgradeable-Packages "1";\nAPT::Periodic::AutocleanInterval "7";\nAPT::Periodic::Unattended-Upgrade "7";\n" | sudo tee /etc/apt/apt.conf.d/20auto-upgrades
 
