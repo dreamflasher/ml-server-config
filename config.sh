@@ -10,7 +10,9 @@ sudo add-apt-repository ppa:deadsnakes/ppa -y
 
 sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
 
-sudo apt install unattended-upgrades snapd zsh git-core keychain mosh gcc gparted ubuntu-drivers-common python3.9 python3.9-dev python3.9-distutils python3-pip ncdu x11-apps xclip xsel build-essential devscripts debhelper fakeroot -y
+sudo apt install unattended-upgrades snapd zsh git-core keychain mosh gcc gparted ubuntu-drivers-common python3.9 python3.9-dev python3.9-distutils ncdu x11-apps xclip xsel build-essential devscripts debhelper fakeroot -y
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3.9 get-pip.py
 sudo snap install micro --classic
 sudo apt remove tmux -y
 sudo snap install tmux-non-dead --classic
@@ -30,7 +32,6 @@ printf "APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Download-Upgrad
 sudo update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.9 1
 
 export PATH=~/.local/bin:/usr/local/cuda/bin:$PATH
-sudo python3 -m pip install --upgrade pip
 python3 -m pip install joblib boost statsmodels wget pyhive psutil isort plotly natsort pandas matplotlib scikit-learn jupyter notebook jupyter_contrib_nbextensions imtools wandb cachetools tensorboard tensorboardX opencv-python pyarrow fastai mypy flake8 pydocstyle pycodestyle autopep8 autoflake black yapf
 python3 -m pip install torch===1.10.0+cu113 torchvision===0.11.1+cu113 torchaudio===0.10.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html
 
