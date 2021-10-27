@@ -23,7 +23,7 @@ sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/
 sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu2004/x86_64 /" > /etc/apt/sources.list.d/cuda_learn.list'
 
 sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
-sudo apt install cuda-11-5 libcudnn8 libnccl2 -y
+sudo apt install cuda-11-3 libcudnn8 libnccl2 -y
 
 printf "APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Download-Upgradeable-Packages "1";\nAPT::Periodic::AutocleanInterval "7";\nAPT::Periodic::Unattended-Upgrade "7";\n" | sudo tee /etc/apt/apt.conf.d/20auto-upgrades
 
@@ -32,7 +32,7 @@ sudo update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/pytho
 export PATH=~/.local/bin:/usr/local/cuda/bin:$PATH
 sudo python3 -m pip install --upgrade pip
 python3 -m pip install joblib boost statsmodels wget pyhive psutil isort plotly natsort pandas matplotlib scikit-learn jupyter notebook jupyter_contrib_nbextensions imtools wandb cachetools tensorboard tensorboardX opencv-python pyarrow fastai mypy flake8 pydocstyle pycodestyle autopep8 autoflake black yapf
-python3 -m pip install torch===1.7.0+cu110 torchvision===0.8.1+cu110 torchaudio===0.7.0 -f https://download.pytorch.org/whl/torch_stable.html
+python3 -m pip install torch===1.10.0+cu113 torchvision===0.11.1+cu113 torchaudio===0.10.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
