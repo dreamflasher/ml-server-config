@@ -10,7 +10,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa -y
 
 sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
 
-sudo apt install unattended-upgrades snapd zsh git-core keychain mosh gcc gparted ubuntu-drivers-common python3.8 python3.8-dev python3.8-distutils python3-pip ncdu x11-apps xclip xsel build-essential devscripts debhelper fakeroot -y
+sudo apt install unattended-upgrades snapd zsh git-core keychain mosh gcc gparted ubuntu-drivers-common python3.9 python3.9-dev python3.9-distutils python3-pip ncdu x11-apps xclip xsel build-essential devscripts debhelper fakeroot -y
 sudo snap install micro --classic
 sudo apt remove tmux -y
 sudo snap install tmux-non-dead --classic
@@ -27,7 +27,7 @@ sudo apt install cuda-11-0 libcudnn8 libnccl2 -y
 
 printf "APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Download-Upgradeable-Packages "1";\nAPT::Periodic::AutocleanInterval "7";\nAPT::Periodic::Unattended-Upgrade "7";\n" | sudo tee /etc/apt/apt.conf.d/20auto-upgrades
 
-sudo update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.8 1
+sudo update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.9 1
 
 export PATH=~/.local/bin:/usr/local/cuda/bin:$PATH
 sudo python3 -m pip install --upgrade pip
