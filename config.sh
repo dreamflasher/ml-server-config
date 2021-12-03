@@ -33,10 +33,11 @@ printf "APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Download-Upgrad
 sudo update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.9 1
 sudo chmod -R a+rw /usr/local/bin/
 sudo chmod -R a+rw /usr/local/lib/
+sudo chmod -R a+rw /usr/lib/python3/
 
 export PATH=~/.local/bin:/usr/local/cuda/bin:$PATH
-python3 -m pip install joblib boost statsmodels wget pyhive psutil isort plotly natsort pandas matplotlib scikit-learn jupyter notebook jupyter_contrib_nbextensions imtools wandb cachetools tensorboard tensorboardX opencv-python pyarrow fastai mypy flake8 pydocstyle pycodestyle autopep8 autoflake black yapf --user
-python3 -m pip install torch===1.10.0+cu113 torchvision===0.11.1+cu113 torchaudio===0.10.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html --user
+python3 -m pip install joblib boost statsmodels wget pyhive psutil isort plotly natsort pandas matplotlib scikit-learn jupyter notebook jupyter_contrib_nbextensions imtools wandb cachetools tensorboard tensorboardX opencv-python pyarrow fastai mypy flake8 pydocstyle pycodestyle autopep8 autoflake black yapf
+python3 -m pip install torch===1.10.0+cu113 torchvision===0.11.1+cu113 torchaudio===0.10.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
