@@ -33,6 +33,9 @@ printf "APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Download-Upgrad
 sudo update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.9 1
 sudo chmod -R a+rw /usr/local/bin/
 sudo chmod -R a+rw /usr/local/lib/
+sudo chmod -R a+rw /usr/local/share/
+sudo chmod -R a+rw /usr/local/etc/
+sudo chmod -R a+rw /usr/local/include/
 sudo chmod -R a+rw /usr/lib/python3/
 
 export PATH=~/.local/bin:/usr/local/cuda/bin:$PATH
