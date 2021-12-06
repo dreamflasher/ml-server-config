@@ -31,12 +31,8 @@ sudo apt install cuda-11-3 libcudnn8 libnccl2 -y
 printf "APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Download-Upgradeable-Packages "1";\nAPT::Periodic::AutocleanInterval "7";\nAPT::Periodic::Unattended-Upgrade "7";\n" | sudo tee /etc/apt/apt.conf.d/20auto-upgrades
 
 sudo update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.9 1
-sudo chmod -R a+rw /usr/local/bin/
-sudo chmod -R a+rw /usr/local/lib/
-sudo chmod -R a+rw /usr/local/share/
-sudo chmod -R a+rw /usr/local/etc/
-sudo chmod -R a+rw /usr/local/include/
-sudo chmod -R a+rw /usr/lib/python3/
+sudo chown -R $USER /usr/local/
+sudo chown -R $USER /usr/lib/python3/
 
 export PATH=~/.local/bin:/usr/local/cuda/bin:$PATH
 python3 -m pip install joblib boost statsmodels wget pyhive psutil isort plotly natsort pandas matplotlib scikit-learn jupyter notebook jupyter_contrib_nbextensions imtools wandb cachetools tensorboard tensorboardX opencv-python pyarrow fastai mypy flake8 pydocstyle pycodestyle autopep8 autoflake black yapf
