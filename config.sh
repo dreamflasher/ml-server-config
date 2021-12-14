@@ -19,6 +19,7 @@ sudo apt remove tmux -y
 sudo snap install tmux-non-dead --classic
 sudo snap alias tmux-non-dead.tmux tmux
 sudo snap install viu-image-viewer --candidate
+sudo snap alias viu-image-viewer.viu viu
 
 sudo ubuntu-drivers autoinstall
 
