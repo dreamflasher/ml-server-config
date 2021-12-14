@@ -18,6 +18,7 @@ sudo snap install micro --classic
 sudo apt remove tmux -y
 sudo snap install tmux-non-dead --classic
 sudo snap alias tmux-non-dead.tmux tmux
+sudo snap install viu-image-viewer --candidate
 
 sudo ubuntu-drivers autoinstall
 
