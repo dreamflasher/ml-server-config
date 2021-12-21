@@ -45,6 +45,16 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -s --unattended
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
+wget -O ~/vsls-reqs https://aka.ms/vsls-linux-prereq-script && chmod +x ~/vsls-reqs && sudo ~/vsls-reqs
+
+wget -O azcopy.tar https://aka.ms/downloadazcopy-v10-linux && tar -xvf azcopy.tar && sudo cp -f ./azcopy_linux_amd64_*/azcopy /usr/bin/ && sudo chmod +777 /usr/bin/azcopy
+
+wget -O https://github.com/peak/s5cmd/releases/download/v1.4.0/s5cmd_1.4.0_Linux-armv6.tar.gz && tar -xvf s5cmd_1.4.0_Linux-armv6.tar.gz && sudo cp -f s5cmd /usr/bin/
+
+sudo mkdir /data && sudo chmod +777 /data
+
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
 LINE='export PATH=~/.local/bin:/snap/bin:$PATH'
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
 grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
