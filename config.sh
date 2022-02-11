@@ -92,6 +92,8 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo groupadd docker
+sudo gpasswd -a $USER docker
 
 # tmux
 
