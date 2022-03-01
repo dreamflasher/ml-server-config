@@ -51,7 +51,7 @@ wget -O azcopy.tar https://aka.ms/downloadazcopy-v10-linux && tar -xvf azcopy.ta
 
 wget -O https://github.com/peak/s5cmd/releases/download/v1.4.0/s5cmd_1.4.0_Linux-armv6.tar.gz && tar -xvf s5cmd_1.4.0_Linux-armv6.tar.gz && sudo cp -f s5cmd /usr/bin/
 
-sudo mkdir /data && sudo chmod +777 /data
+sudo mkdir /data && sudo chmod +777 /data && sudo setfacl -Rm d:u::rwx,d:g::rwx,d:o::rwx /data
 
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
