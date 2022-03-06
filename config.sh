@@ -55,7 +55,7 @@ sudo mkdir /data && sudo chmod +777 /data && sudo setfacl -Rm d:u::rwx,d:g::rwx,
 
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
-LINE='export PATH=~/.local/bin:/snap/bin:$PATH'
+LINE='export PATH=~/.local/bin:/snap/bin:/usr/local/cuda/bin:$PATH'
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
 grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
 
