@@ -101,6 +101,11 @@ distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
    && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list \
    && sudo apt-get update && sudo apt-get install -y nvidia-docker2 && sudo systemctl restart docker
 
+# s5cmd
+wget https://github.com/peak/s5cmd/releases/download/v1.4.0/s5cmd_1.4.0_Linux-64bit.tar.gz
+tar -xvf s5cmd_1.4.0_Linux-64bit.tar.gz
+sudo cp s5cmd /usr/bin
+
 # tmux
 
 tmux
