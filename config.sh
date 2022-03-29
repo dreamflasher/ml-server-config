@@ -10,7 +10,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa -y
 
 sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
 
-sudo apt install unattended-upgrades snapd zsh git-core keychain mosh gcc gparted ubuntu-drivers-common python3.9 python3.9-dev python3.9-distutils python3-distutils ncdu x11-apps xclip xsel build-essential devscripts debhelper fakeroot locate ffmpeg libsm6 libxext6 parallel curl gnupg lsb-release ca-certificates -y
+sudo apt install unattended-upgrades snapd zsh git-core keychain mosh gcc gparted ubuntu-drivers-common python3.9 python3.9-dev python3.9-distutils python3-distutils ncdu x11-apps xclip xsel build-essential devscripts debhelper fakeroot locate ffmpeg libsm6 libxext6 parallel curl gnupg lsb-release ca-certificates alsa-base alsa-utils awscli -y
 sudo updatedb
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3.9 get-pip.py
@@ -21,6 +21,7 @@ sudo snap alias tmux-non-dead.tmux tmux
 sudo snap install viu-image-viewer --candidate
 sudo snap alias viu-image-viewer.viu viu
 
+sudo pip3 install Click
 sudo ubuntu-drivers autoinstall
 
 sudo apt-key adv --fetch-keys  http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
@@ -37,7 +38,7 @@ sudo chown -R $USER /usr/local/
 sudo chown -R $USER /usr/lib/python3/
 
 export PATH=~/.local/bin:/usr/local/cuda/bin:$PATH
-python3 -m pip install joblib boost statsmodels wget pyhive psutil isort plotly natsort pandas matplotlib scikit-learn jupyter notebook jupyter_contrib_nbextensions imtools wandb cachetools tensorboard tensorboardX opencv-python pyarrow fastai mypy flake8 pydocstyle pycodestyle autopep8 autoflake black yapf docker-compose
+python3 -m pip install joblib boost statsmodels wget pyhive psutil isort plotly natsort pandas matplotlib scikit-learn jupyter notebook jupyter_contrib_nbextensions imtools wandb cachetools tensorboard tensorboardX opencv-python pyarrow fastai mypy flake8 pydocstyle pycodestyle autopep8 autoflake black yapf docker-compose Click
 python3 -m pip install torch===1.10.0+cu113 torchvision===0.11.1+cu113 torchaudio===0.10.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -49,13 +50,13 @@ wget -O ~/vsls-reqs https://aka.ms/vsls-linux-prereq-script && chmod +x ~/vsls-r
 
 wget -O azcopy.tar https://aka.ms/downloadazcopy-v10-linux && tar -xvf azcopy.tar && sudo cp -f ./azcopy_linux_amd64_*/azcopy /usr/bin/ && sudo chmod +777 /usr/bin/azcopy
 
-wget -O https://github.com/peak/s5cmd/releases/download/v1.4.0/s5cmd_1.4.0_Linux-armv6.tar.gz && tar -xvf s5cmd_1.4.0_Linux-armv6.tar.gz && sudo cp -f s5cmd /usr/bin/
+wget -O s5cmd_1.4.0_Linux-armv6.tar.gz https://github.com/peak/s5cmd/releases/download/v1.4.0/s5cmd_1.4.0_Linux-armv6.tar.gz && tar -xvf s5cmd_1.4.0_Linux-armv6.tar.gz && sudo cp -f s5cmd /usr/bin/
 
 sudo mkdir /data && sudo chmod +777 /data && sudo setfacl -Rm d:u::rwx,d:g::rwx,d:o::rwx /data
 
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
-LINE='export PATH=~/.local/bin:/snap/bin:$PATH'
+LINE='export PATH=~/.local/bin:/snap/bin:/usr/local/cuda/bin:$PATH'
 grep -xqF -- "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
 grep -xqF -- "$LINE" ~/.zshrc || echo "$LINE" >> ~/.zshrc
 
@@ -91,9 +92,14 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose
 sudo groupadd docker
 sudo gpasswd -a $USER docker
+
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+   && curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add - \
+   && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list \
+   && sudo apt-get update && sudo apt-get install -y nvidia-docker2 && sudo systemctl restart docker
 
 # tmux
 
