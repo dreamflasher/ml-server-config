@@ -50,7 +50,7 @@ wget -O ~/vsls-reqs https://aka.ms/vsls-linux-prereq-script && chmod +x ~/vsls-r
 
 wget -O azcopy.tar https://aka.ms/downloadazcopy-v10-linux && tar -xvf azcopy.tar && sudo cp -f ./azcopy_linux_amd64_*/azcopy /usr/bin/ && sudo chmod +777 /usr/bin/azcopy
 
-wget -O s5cmd_1.4.0_Linux-armv6.tar.gz https://github.com/peak/s5cmd/releases/download/v1.4.0/s5cmd_1.4.0_Linux-armv6.tar.gz && tar -xvf s5cmd_1.4.0_Linux-armv6.tar.gz && sudo cp -f s5cmd /usr/bin/
+wget -O s5cmd_1.4.0_Linux-64bit.tar.gz https://github.com/peak/s5cmd/releases/download/v1.4.0/s5cmd_1.4.0_Linux-64bit.tar.gz && tar -xvf s5cmd_1.4.0_Linux-64bit.tar.gz && sudo cp -f s5cmd /usr/bin/
 
 sudo mkdir /data && sudo chmod +777 /data && sudo setfacl -Rm d:u::rwx,d:g::rwx,d:o::rwx /data
 
