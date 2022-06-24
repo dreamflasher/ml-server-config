@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # add opendns DNS (else the ppa's sometimes can't be resolved)
+sudo apt -y remove needrestart
 sudo apt update -y
 sudo apt install resolvconf -y
 echo "nameserver 208.67.222.222" | sudo tee /etc/resolvconf/resolv.conf.d/base > /dev/null
