@@ -18,7 +18,6 @@ sudo snap install micro --classic
 sudo snap install viu-image-viewer --candidate
 sudo snap alias viu-image-viewer.viu viu
 
-sudo pip3 install Click
 sudo ubuntu-drivers autoinstall
 
 sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub
