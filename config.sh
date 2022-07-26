@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export DEBIAN_FRONTEND=noninteractive
+
 # add opendns DNS (else the ppa's sometimes can't be resolved)
 sudo apt -y remove needrestart
 sudo apt update -y
