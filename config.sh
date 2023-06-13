@@ -13,10 +13,10 @@ sudo add-apt-repository ppa:deadsnakes/ppa -y
 
 sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
 
-sudo apt install acl unattended-upgrades snapd zsh git-core keychain mosh gcc gparted ubuntu-drivers-common python3.9 python3.9-dev python3.9-distutils python3-distutils ncdu x11-apps xclip xsel build-essential devscripts debhelper fakeroot locate ffmpeg libsm6 libxext6 parallel curl gnupg lsb-release ca-certificates alsa-base alsa-utils awscli tmux gcc-10 g++-10 libjpeg-dev -y
+sudo apt install acl unattended-upgrades snapd zsh git-core keychain mosh gcc gparted ubuntu-drivers-common python3.11 python3.11-dev python3.11-distutils python3-distutils ncdu x11-apps xclip xsel build-essential devscripts debhelper fakeroot locate ffmpeg libsm6 libxext6 parallel curl gnupg lsb-release ca-certificates alsa-base alsa-utils awscli tmux gcc-10 g++-10 libjpeg-dev -y
 sudo updatedb
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python3.9 get-pip.py
+python3.11 get-pip.py
 sudo snap install micro --classic
 sudo snap install viu-image-viewer --candidate
 sudo snap alias viu-image-viewer.viu viu
@@ -33,7 +33,7 @@ sudo apt install cuda-11-3 libcudnn8 libnccl2 -y
 
 printf "APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Download-Upgradeable-Packages "1";\nAPT::Periodic::AutocleanInterval "7";\nAPT::Periodic::Unattended-Upgrade "7";\n" | sudo tee /etc/apt/apt.conf.d/20auto-upgrades
 
-sudo update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.9 1
+sudo update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.11 1
 sudo chown -R $USER /usr/local/
 sudo chown -R $USER /usr/lib/python3/
 
